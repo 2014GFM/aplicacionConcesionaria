@@ -1,0 +1,6 @@
+Seleccione...
+Gris
+Blanco
+Negro
+Azul
+Rojo
