@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ar.com.vehiculos.ventanas;
+package ar.com.aplicacionConcesionaria.vehiculos.ventanas;
 
-import ar.com.baseDeDatos.AdministradorDeConexiones;
-import ar.com.vehiculos.entidades.Auto;
-import ar.com.vehiculos.entidades.CustomListModelAutos;
+import ar.com.aplicacionConcesionaria.baseDeDatos.AdministradorDeConexiones;
+import ar.com.aplicacionConcesionaria.vehiculos.entidades.Auto;
+import ar.com.aplicacionConcesionaria.vehiculos.entidades.CustomListModelAutos;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package ar.com.base.entidades;
+package ar.com.aplicacionConcesionaria.base.entidades;
 
 public abstract class Vehiculo {
     

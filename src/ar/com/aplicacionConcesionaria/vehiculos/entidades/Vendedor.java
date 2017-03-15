@@ -1,56 +1,52 @@
-package ar.com.vehiculos.entidades;
+package ar.com.aplicacionConcesionaria.vehiculos.entidades;
 
-import ar.com.base.entidades.Persona;
-import ar.com.baseDeDatos.AdministradorDeConexiones;
-import java.sql.Statement;
+import ar.com.aplicacionConcesionaria.base.entidades.Persona;
+import ar.com.aplicacionConcesionaria.baseDeDatos.AdministradorDeConexiones;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
-public class Comprador extends Persona{
+public class Vendedor extends Persona{
     
     // Declaro atributos privados
     
-    private double presupuesto;
-    private int idcompradores;
-
+    private int cantAutosVendidos, idvendedores;
+    
     //Creo setters y getters
 
-    public double getPresupuesto() {
-        return presupuesto;
+    public int getCantAutosVendidos() {
+        return cantAutosVendidos;
     }
 
-    public void setPresupuesto(double presupuesto) {
-        this.presupuesto = presupuesto;
+    public void setCantAutosVendidos(int cantAutosVendidos) {
+        this.cantAutosVendidos = cantAutosVendidos;
     }
 
-    public int getIcompradores() {
-        return idcompradores;
+    public int getIdvendedores() {
+        return idvendedores;
     }
 
-    public void setIdcompradores(int idcompradores) {
-        this.idcompradores = idcompradores;
+    public void setIdvendedores(int idvendedores) {
+        this.idvendedores = idvendedores;
     }
     
     // Creo constructor vacio y constructor con parametros
 
-    public Comprador() {
+    public Vendedor() {
     }
 
-    public Comprador(double presupuesto, int idcompradores, String nombre, String apellido, int numeroDocumento) {
+    public Vendedor(int cantAutosVendidos, int idvendedores, String nombre, String apellido, int numeroDocumento) {
         super(nombre, apellido, numeroDocumento);
-        this.idcompradores = idcompradores;
-        this.presupuesto = presupuesto;
+        this.idvendedores = idvendedores;
+        this.cantAutosVendidos = cantAutosVendidos;
     }
     
-     
-    
-    public static void insertar(int idcompradores, String nombre, String apellido, int numeroDocumento, double presupuesto) throws Exception{
+    public static void insertar(int idvendedores, String nombre, String apellido, int numeroDocumento, int cantAutosVendidos) throws Exception{
         //obtengo una conexion
         Connection unaConexion = AdministradorDeConexiones.obtenerConexion();
          
         //armo la sentencia
-        String unaInsercion = "insert into compradores values(null,'"+nombre+"','"+apellido+"','"+numeroDocumento+"',"+presupuesto+")";
+        String unaInsercion = "insert into vendedores values(null,'"+nombre+"','"+apellido+"','"+numeroDocumento+"',"+cantAutosVendidos+")";
          
         //creo un objeto de tipo Statement q ejecutara la sentencia de insercion
         Statement unaSentencia = unaConexion.createStatement();
@@ -66,12 +62,12 @@ public class Comprador extends Persona{
         System.out.println("Insercion OK!!");
     }
     
-    public static void actualizar(Comprador c, String parametroACambiar, String nuevoValor) throws Exception{
+    public static void actualizar(Vendedor c, String parametroACambiar, String nuevoValor) throws Exception{
         //obtengo una conexion
         Connection unaConexion = AdministradorDeConexiones.obtenerConexion();
          
         //armo la sentencia
-        String unaActualizacion = "update compradores set "+parametroACambiar+" = '"+nuevoValor+"' where nombre = "+c.getNombre();
+        String unaActualizacion = "update vendedores set "+parametroACambiar+" = '"+nuevoValor+"' where nombre = "+c.getNombre();
          
         //creo un objeto de tipo Statement q ejecutara la sentencia de insercion
         Statement unaSentencia = unaConexion.createStatement();
@@ -87,16 +83,16 @@ public class Comprador extends Persona{
         System.out.println("Actualizacion OK!!");
     }
     
-    public static void eliminar(Comprador p) throws Exception{
+    public static void eliminar(Vendedor p) throws Exception{
         //obtengo una conexion
         Connection unaConexion = AdministradorDeConexiones.obtenerConexion();
-
+         
         //armo la sentencia
-        String unaEliminacion = "delete from compradores where idcompradores = "+p.getIcompradores();
+        String unaEliminacion = "delete from vendedores where idvendedores = "+p.getIdvendedores();
          
         //creo un objeto de tipo Statement q ejecutara la sentencia de insercion
         Statement unaSentencia = unaConexion.createStatement();
-       
+        
         //ejecuto la sentencia de insercion
         unaSentencia.execute(unaEliminacion);
         
@@ -112,7 +108,7 @@ public class Comprador extends Persona{
         // Obtengo una conexion
         Connection unaConexion = AdministradorDeConexiones.obtenerConexion();
         // Armo la query
-        String unaConsulta = "select * from compradores";
+        String unaConsulta = "select * from vendedores";
         // Creo un objeto de tipo Statement que ejecutara la sentencia
         Statement unaSentencia = unaConexion.createStatement();
         // Ejecuto la senetencia y almaceno el resultado en un objeto de tipo ResulSet
@@ -122,7 +118,7 @@ public class Comprador extends Persona{
             unResultado.getString("nombre");
             unResultado.getString("apellido");
             unResultado.getString("numeroDocumento");
-            unResultado.getString("presupuesto");
+            unResultado.getString("cantAutosVendidos");
         }
         
         // Cierro la sentencia
@@ -134,7 +130,7 @@ public class Comprador extends Persona{
 
     @Override
     public String toString() {
-        return super.toString() + ", Presupuesto: " + presupuesto;
+        return super.toString() + ", Cantidad de Autos Vendidos: " + cantAutosVendidos;
     }
     
 }

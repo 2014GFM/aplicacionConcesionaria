@@ -1,8 +1,8 @@
-package ar.com.vehiculos.entidades;
+package ar.com.aplicacionConcesionaria.vehiculos.entidades;
 
 import java.sql.Connection;
-import ar.com.base.entidades.Vehiculo;
-import ar.com.baseDeDatos.AdministradorDeConexiones;
+import ar.com.aplicacionConcesionaria.base.entidades.Vehiculo;
+import ar.com.aplicacionConcesionaria.baseDeDatos.AdministradorDeConexiones;
 import java.sql.ResultSet;
 import java.sql.Statement;
 

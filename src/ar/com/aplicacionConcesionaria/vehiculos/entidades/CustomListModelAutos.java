@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ar.com.vehiculos.entidades;
+package ar.com.aplicacionConcesionaria.vehiculos.entidades;
 
 import java.util.ArrayList;
 import javax.swing.AbstractListModel;
@@ -12,9 +12,9 @@ import javax.swing.AbstractListModel;
  *
  * @author Daiana
  */
-public class CustomListModelCompradores extends AbstractListModel{
+public class CustomListModelAutos extends AbstractListModel{
  
-    private ArrayList<Comprador> lista = new ArrayList<>();
+    private ArrayList<Auto> lista = new ArrayList<>();
     
     @Override
     public int getSize() {
@@ -23,24 +23,24 @@ public class CustomListModelCompradores extends AbstractListModel{
  
     @Override
     public Object getElementAt(int index) {
-        Comprador p = lista.get(index);
-        return p.getNombre();
+        Auto p = lista.get(index);
+        return p.getMarca();
     }
-    public void agregarPersona(Comprador p){
+    public void agregarAuto(Auto p) {
         lista.add(p);
         this.fireIntervalAdded(this, getSize(), getSize()+1);
     }
-    public void agregarPersonaDB(Comprador p, int idautos, String nombre, String apellido, int numeroDocumento, double presupuesto) throws Exception{
-        Comprador.insertar(idautos, nombre, apellido, numeroDocumento, presupuesto);
+    public void agregarAutoDB(Auto p, int idautos, String marca, String modelo, String color, int alto, int ancho, int largo, float precio) throws Exception{
+        Auto.insertar(idautos, marca, modelo, color, alto, ancho, largo, precio);
         lista.add(p);
         this.fireIntervalAdded(this, getSize(), getSize()+1);
     }
-    public void eliminarPersona(Comprador p, int index0) throws Exception{
-        Comprador.eliminar(p);
+    public void eliminarAuto(Auto p, int index0) throws Exception{
+        Auto.eliminar(p);
         lista.remove(index0);
         this.fireIntervalRemoved(index0, getSize(), getSize()+1);
     }
-    public Comprador getPersona(int index){
+    public Auto getAuto(int index){
         return lista.get(index);
     }
 }

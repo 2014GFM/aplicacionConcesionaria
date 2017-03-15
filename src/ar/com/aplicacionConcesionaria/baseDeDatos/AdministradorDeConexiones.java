@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package ar.com.baseDeDatos;
+package ar.com.aplicacionConcesionaria.baseDeDatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
