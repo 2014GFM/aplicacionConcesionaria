@@ -335,7 +335,7 @@ public final class autosVentana extends javax.swing.JInternalFrame {
         //Proceso de lectura de marcas
         try {
             //creo un objeto File que representa el archivo a leer
-            File entrada = new File("\\src\\ar\\com\\vehiculos\\recursos\\marcas.txt");
+            File entrada = new File("src\\ar\\com\\aplicacionConcesionaria\\vehiculos\\recursos\\marcas.txt");
             
             try ( //creo el stream de lectura
                 FileReader lector = new FileReader(entrada)) {
@@ -369,7 +369,7 @@ public final class autosVentana extends javax.swing.JInternalFrame {
         // Proceso de lectura de colores
         try {
             //creo un objeto File que representa el archivo a leer
-            File entrada = new File("\\src\\ar\\com\\vehiculos\\recursos\\color.txt");
+            File entrada = new File("src\\ar\\com\\aplicacionConcesionaria\\vehiculos\\recursos\\color.txt");
 
             try ( //creo el stream de lectura
                     FileReader lector = new FileReader(entrada)) {
@@ -403,7 +403,7 @@ public final class autosVentana extends javax.swing.JInternalFrame {
         // Proceso de lectura de modelos
         try {
             //creo un objeto File que representa el archivo a leer
-            File entrada = new File("\\src\\ar\\com\\vehiculos\\recursos\\modelos.txt");
+            File entrada = new File("src\\ar\\com\\aplicacionConcesionaria\\vehiculos\\recursos\\modelos.txt");
 
             try ( //creo el stream de lectura
                     FileReader lector = new FileReader(entrada)) {
